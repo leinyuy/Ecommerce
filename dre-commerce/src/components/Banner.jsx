@@ -24,7 +24,7 @@ const Banner = () => {
             loading="priority"
           />
           <img
-            className="w-screen h-full object-cover"
+            className="w-screen h-full object-fill "
             src={Bannertwo}
             alt="ImageTwo"
             loading="priority"
