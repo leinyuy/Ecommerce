@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { BannerOne, Bannertwo } from '../assets/index';
+import { BannerOne, Bannertwo, BannerThree } from '../assets/index';
 import {BsFillArrowLeftSquareFill,BsFillArrowRightSquareFill  } from 'react-icons/bs';
 
 const Banner = () => {
@@ -27,7 +27,7 @@ const Banner = () => {
           />
           <img
             className="w-screen h-full object-fill "
-            src={Bannertwo}
+            src={BannerThree}
             alt="ImageTwo"
             loading="priority"
           />
