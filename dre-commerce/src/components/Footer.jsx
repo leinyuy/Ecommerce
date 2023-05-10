@@ -20,11 +20,11 @@ const Footer = () => {
         </div>
         <div>
           <h2 className="text-2xl font-semibold text-white mb-4">Locate us</h2>
-          <div className="text-base flex flex-col gap-2">
-            <p>Ohio district</p>
-            <p>Mobile: 278 7679937</p>
-            <p>Phone: 00055845225</p>
-            <p>Email: reactdev@gmail.com</p>
+          <div className="text-base flex flex-col gap-2 ">
+            <p className='hover:text-white cursor-pointer'>Ohio district</p>
+            <p className='hover:text-white cursor-pointer'>Mobile: 278 7679937</p>
+            <p className='hover:text-white cursor-pointer'>Phone: 00055845225</p>
+            <p className='hover:text-white cursor-pointer'>Email: reactdev@gmail.com</p>
           </div>
         </div>
         <div>
