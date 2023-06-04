@@ -1,14 +1,17 @@
 import React from 'react'
 import {logoDark} from '../assets/index'
 import { cartImg } from '../assets/index'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
     <div className="w-full h-20 bg-white border-b-[1px] border-b-gray-800 font-titleFont sticky top-0 z-50">
         <div className="max-w-screen-xl h-full mx-auto flex items-center justify-between">
-            <div>
-                <img className="w-28" src={logoDark} alt="cartly dark" />
-              </div>
+            <Link to = "/">
+                <div>
+                  <img className="w-28" src={logoDark} alt="cartly dark" />
+                </div>
+            </Link>
               <div className="flex items-center gap-8">
               <ul className="flex items-center gap-8">
                       <li className="text-base text-black font-bold hover:text-orange-900

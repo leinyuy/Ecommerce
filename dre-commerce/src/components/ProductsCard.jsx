@@ -1,11 +1,27 @@
 import React from 'react'
-
+import { useNavigate } from 'react-router-dom';
 
 const ProductsCard = ({ product }) => {
+  const navigate=useNavigate();
+  const _id = product.title;
+  const idString=(_id)=>{
+    return String(_id).toLowerCase().split("").join("");
+  };
+  const rootId = idString(_id)
+  console.log(rootId);
+  const handleDetails = () => {
+    const encodedId = encodeURIComponent(rootId);
+    navigate(`/product/${encodedId}`, {
+      state: {
+        item: product,
+      },
+    });
+  };
+  
   console.log(product)
   return (
     <div className="group">
-      <div className="w-full h-96 cursor-pointer overflow-hidden">
+      <div onClick={handleDetails} className="w-full h-96 cursor-pointer overflow-hidden">
         <img
           className="w-full object-cover group-hover:scale-110 duration-500"
           src={product.image}
@@ -33,6 +49,10 @@ const ProductsCard = ({ product }) => {
             </p>
           </div>
         </div>
+        <div>
+          <p className='text-sm'>{product.category}</p>
+        </div>
+        
       </div>
     </div>
   );
