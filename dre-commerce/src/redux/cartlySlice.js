@@ -11,13 +11,17 @@ export const cartlySlice=createSlice({
     reducers:{
         addToCart:(state,action)=>{
             const item = state.productData.find(
-                (item)=> item._id === action.payLoad
+                (item)=> item._id === action.payload
             );
+            if(item){
+                item.quantity += action.payload.quantity
+            }else{
+                state.productData.push(action.payload);
+            }
+            
         },
     }
 });
 
-export const{
-    addToCart
-} = cartlySlice.actions;
+export const{addToCart} = cartlySlice.actions;
 export default cartlySlice.reducer;
