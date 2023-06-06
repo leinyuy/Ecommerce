@@ -8,11 +8,11 @@ import { ToastContainer, toast } from 'react-toastify';
 const ProductsCard = ({ product }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const _id = product.title;
-  const idString = (_id) => {
-    return String(_id).toLowerCase().split('').join('');
+  const id = product.title;
+  const idString = (id) => {
+    return String(id).toLowerCase().split('').join('');
   };
-  const rootId = idString(_id);
+  const rootId = idString(id);
   const handleDetails = () => {
     const encodedId = encodeURIComponent(rootId);
     navigate(`/product/${encodedId}`, {
@@ -44,7 +44,7 @@ const ProductsCard = ({ product }) => {
               onClick={() =>
                 dispatch(
                   addToCart({
-                    _id: product._id,
+                    id: product.id,
                     title: product.title,
                     image: product.image,
                     price: product.price,

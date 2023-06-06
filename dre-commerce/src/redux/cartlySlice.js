@@ -11,18 +11,18 @@ export const cartlySlice=createSlice({
     reducers:{
         addToCart:(state,action)=>{
             const item = state.productData.find(
-                (item)=> item._id === action.payload
+                (item)=> item.id === action.payload.id
             );
             if(item){
                 item.quantity += action.payload.quantity
             }else{
                 state.productData.push(action.payload);
             }
-            
+            console.log(action.payload)
         }, 
         deleteItem: (state,action)=>{
             state.productData=state.productData.filter(
-                (item)=>item._id !== action.payload
+                (item)=>item.id !== action.payload
             );
         },
         resetCart: (state)=>{
@@ -30,7 +30,7 @@ export const cartlySlice=createSlice({
         },
         increamentQuantity: (state, action)=>{
             const item = state.productData.find(
-                (item)=>item._id===action.payload._id
+                (item)=>item.id===action.payload.id
             );
             if(item){
                 item.quantity++;
@@ -38,7 +38,7 @@ export const cartlySlice=createSlice({
         },
         decreamentQuantity: (state, action)=> {
             const item= state.productData.find(
-                (item)=> item._id ===action.payload._id
+                (item)=> item.id ===action.payload.id
             );
             if (item.quantity===1){
                 item.quantity=1;
