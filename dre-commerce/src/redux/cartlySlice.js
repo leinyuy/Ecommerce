@@ -19,9 +19,40 @@ export const cartlySlice=createSlice({
                 state.productData.push(action.payload);
             }
             
+        }, 
+        deleteItem: (state,action)=>{
+            state.productData=state.productData.filter(
+                (item)=>item._id !== action.payload
+            );
         },
-    }
+        resetCart: (state)=>{
+            state.productData=[];
+        },
+        increamentQuantity: (state, action)=>{
+            const item = state.productData.find(
+                (item)=>item._id===action.payload._id
+            );
+            if(item){
+                item.quantity++;
+            }
+        },
+        decreamentQuantity: (state, action)=> {
+            const item= state.productData.find(
+                (item)=> item._id ===action.payload._id
+            );
+            if (item.quantity===1){
+                item.quantity=1;
+            }else{
+                item.quantity--;
+            }
+        },
+    },
 });
 
-export const{addToCart} = cartlySlice.actions;
+export const{
+    addToCart, 
+    deleteItem, 
+    resetCart, 
+    increamentQuantity,
+    decreamentQuantity} = cartlySlice.actions;
 export default cartlySlice.reducer;

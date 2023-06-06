@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/cartlySlice';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const ProductsCard = ({ product }) => {
   const dispatch = useDispatch();
@@ -49,7 +51,7 @@ const ProductsCard = ({ product }) => {
                     quantity: 1,
                     description: product.description,
                   })
-                )
+                )&toast.success(`${product.title} is added`)
               }
               className="absolute z-20 w-[100px] text-gray-500 hover:text-gray-900
             flex items-center gap-1 top-0 transform -translate-x-32 group-hover:translate-x-0
@@ -60,9 +62,21 @@ const ProductsCard = ({ product }) => {
           </div>
         </div>
         <div>
-          <p className="text-sm">{product.category}</p>
+          <p className="text-sm text-base text-gray-500">{product.category}</p>
         </div>
       </div>
+      <ToastContainer
+          position="top-left"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+          />
     </div>
   );
 };
