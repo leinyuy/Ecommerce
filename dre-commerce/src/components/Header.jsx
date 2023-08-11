@@ -41,9 +41,11 @@ const Header = () => {
             justify-center font-semibold '>{productData.length}</span>
           </div>
           </Link>
+          <Link to = "/login">
           <img className='w-10 h-8 rounded-full' src="https://img.freepik.com/premium-vector/accoun-vector-icon-with-long-shadow-white-illustration-isolated-blue-round-background-graphic-web-design_549897-771.jpg?
           size=626&ext=jpg&ga=GA1.1.713883325.1682971806&semt=ais"
             alt="userLogo" />
+          </Link>
           </div>
         </div>
          
