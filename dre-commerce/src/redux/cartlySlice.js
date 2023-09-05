@@ -46,6 +46,14 @@ export const cartlySlice=createSlice({
                 item.quantity--;
             }
         },
+        // user Start here
+        addUser:(state, action)=>{
+            state.userInfo = action.payload;
+        },
+        removeUser:(state)=>{
+            state.userInfo=null;
+        },
+        // User End here
     },
 });
 
@@ -54,5 +62,7 @@ export const{
     deleteItem, 
     resetCart, 
     increamentQuantity,
+    addUser,
+    removeUser,
     decreamentQuantity} = cartlySlice.actions;
 export default cartlySlice.reducer;
