@@ -7,20 +7,31 @@ import {
   signOut,
 } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
+import { addUser } from "../redux/cartlySlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
   const handleGoogleLogin = (e) => {
     e.preventDefault();
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
         const user = result.user;
-        console.log(user);
+        dispatch(
+          addUser({
+          id: user.uid,
+          name: user.displayName,
+          email: user.email,
+          image: user.photoURL,
+        })
+        );
+        setTimeout(()=>{
+          navigate("/")
+        },1500);
         // IdP data available using getAdditionalUserInfo(result)
         // ...
       })
@@ -36,6 +47,7 @@ const Login = () => {
         // ...
       });
   };
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
